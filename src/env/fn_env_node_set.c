@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/02 13:17:37 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/18 22:37:05 by maria         ########   odam.nl         */
+/*   Updated: 2024/12/18 22:44:59 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static bool	fn_set(t_env_node *env, const char *key, const char *new_vl)
 bool	fn_env_node_set(t_env_node **env, const char *key, const char *new_vl)
 {
 	t_env_node	*new;
-
 
 	if (fn_is_key(*env, key) && new_vl == NULL)
 		return (true);
