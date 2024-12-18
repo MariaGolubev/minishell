@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/12 14:14:29 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/16 17:13:03 by mgolubev      ########   odam.nl         */
+/*   Updated: 2024/12/18 22:37:59 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static int	fn_change_dir(t_executer *exec, char *path)
 		return (perror("chdir"), 1);
 	if (fn_env_node_get_value(exec->envs->global_envs, "OLDPWD"))
 	{
-		if (fn_env_node_set(exec->envs->global_envs, "OLDPWD", old) == false)
+		if (fn_env_node_set(&exec->envs->global_envs, "OLDPWD", old) == false)
 			return (ft_putendl_fd("Error setting variable", 2), 1);
 	}
 	else
 		fn_append_helper(exec, "OLDPWD", old);
 	if (fn_env_node_get_value(exec->envs->global_envs, "PWD"))
 	{
-		if (fn_env_node_set(exec->envs->global_envs, "PWD", path) == false)
+		if (fn_env_node_set(&exec->envs->global_envs, "PWD", path) == false)
 			return (ft_putendl_fd("Error setting variable", 2), 1);
 	}
 	else

@@ -66,7 +66,7 @@ SRC_PARSER = fn_parser.c fn_parse_cmdline.c fn_parse_cmdline_next_state.c \
 SRC_ENV = fn_env_node_init.c fn_env_node_set.c fn_env_to_array.c fn_envs_clean.c \
 	fn_env_node_append.c fn_env_node_free.c fn_env_node_get_value.c fn_env_node_new.c \
 	fn_envs_new.c fn_envs_to_array.c fn_envs_get_value.c fn_envs_set_status.c \
-	fn_envs_export.c
+	fn_envs_export.c fn_env_node_push.c
 
 SRC_EXECUTER = executer_utils.c fn_exec_and.c fn_exec_append.c fn_exec_cmd.c \
 	fn_exec_heredoc.c fn_exec_or.c fn_exec_pipe.c fn_exec_recursive.c \

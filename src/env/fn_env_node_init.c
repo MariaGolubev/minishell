@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/29 14:31:14 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/16 17:08:24 by mgolubev      ########   odam.nl         */
+/*   Updated: 2024/12/18 22:15:34 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_env_node	*fn_env_node_init(char **envg)
 		free(value);
 		if (new == NULL)
 			return (fn_env_node_free(&local_env), NULL);
-		fn_env_node_append(&local_env, new);
+		fn_env_node_push(&local_env, new);
 		i++;
 	}
 	return (local_env);

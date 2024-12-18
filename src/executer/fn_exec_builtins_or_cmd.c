@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/11 14:01:05 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/17 15:33:07 by mgolubev      ########   odam.nl         */
+/*   Updated: 2024/12/18 22:38:14 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	fn_exec_builtins_or_cmd(t_executer *exec, t_ast_node *ast)
 	if (builtin_status != -1)
 	{
 		exec->status = builtin_status;
-		fn_env_node_set(exec->envs->global_envs, "_", cmd);
+		fn_env_node_set(&exec->envs->global_envs, "_", cmd);
 		ft_free_array(args);
 		free(cmd);
 		return (fn_envs_set_status(exec->envs, exec->status), exec->status);
 	}
 	fn_set_signal(PARENT);
 	exec->status = fn_exec_cmd(exec, cmd, args);
-	fn_env_node_set(exec->envs->global_envs, "_", cmd);
+	fn_env_node_set(&exec->envs->global_envs, "_", cmd);
 	ft_free_array(args);
 	free(cmd);
 	return (exec->status);

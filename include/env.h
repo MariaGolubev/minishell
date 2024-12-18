@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/29 14:20:48 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/16 18:14:33 by mgolubev      ########   odam.nl         */
+/*   Updated: 2024/12/18 22:37:29 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ char		*fn_env_node_get_value(t_env_node *env, const char *key);
 void		fn_env_node_free(t_env_node **env);
 t_env_node	*fn_env_node_new(const char *key, const char *value);
 void		fn_env_node_append(t_env_node **head, t_env_node *new);
+void		fn_env_node_push(t_env_node **head, t_env_node *new);
 char		*fn_env_node_extract_key(char *key);
 char		*fn_env_node_extract_value(char *value);
 t_env_node	*fn_env_node_init(char **envg);
 int			fn_env_node_get_size(t_env_node *env);
-bool		fn_env_node_set(t_env_node *env,
+bool		fn_env_node_set(t_env_node **env,
 				const char *key, const char *new_value);
 
 t_envs		*fn_envs_new(char **envp);

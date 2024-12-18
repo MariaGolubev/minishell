@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/10 11:51:44 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/16 18:09:36 by mgolubev      ########   odam.nl         */
+/*   Updated: 2024/12/18 22:38:26 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static int	fn_is_key(t_env_node *env, const char *key)
 static bool	fn_exec_env_update(t_executer *exec,
 			const char *key, const char *value)
 {
-	if (fn_is_key(exec->envs->shel_env, key))
-		return (fn_env_node_set(exec->envs->shel_env, key, value));
-	return (fn_env_node_set(exec->envs->global_envs, key, value));
+	if (fn_is_key(exec->envs->global_envs, key))
+		return (fn_env_node_set(&exec->envs->global_envs, key, value));
+	return (fn_env_node_set(&exec->envs->shel_env, key, value));
 }
 
 int	fn_exec_setvar(t_executer *exec, t_ast_node *ast)
@@ -58,7 +58,7 @@ int	fn_exec_setvar(t_executer *exec, t_ast_node *ast)
 	if (value == NULL)
 		return (free(key), EXIT_FAILURE);
 	if (fn_iscmd(ast))
-		flag = fn_env_node_set(exec->envs->program_env, key, value);
+		flag = fn_env_node_set(&exec->envs->program_env, key, value);
 	else
 		flag = fn_exec_env_update(exec, key, value);
 	(free(key), free(value));

@@ -6,7 +6,7 @@
 /*   By: selcyilm <selcyilm@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/12/11 16:47:04 by selcyilm      #+#    #+#                 */
-/*   Updated: 2024/12/16 17:09:53 by mgolubev      ########   odam.nl         */
+/*   Updated: 2024/12/18 22:10:46 by maria         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	fn_envs_export(t_envs *envs, const char *key, const char *value)
 		if (fn_env_node_get_value(envs->shel_env, (char *)key))
 		{
 			tmp = fn_env_node_take(&envs->shel_env, key);
-			fn_env_node_append(&envs->global_envs, tmp);
+			fn_env_node_push(&envs->global_envs, tmp);
 		}
 		else
 		{
 			tmp = fn_env_node_new(key, NULL);
-			fn_env_node_append(&envs->global_envs, tmp);
+			fn_env_node_push(&envs->global_envs, tmp);
 		}
 	}
 	else
@@ -74,6 +74,6 @@ void	fn_envs_export(t_envs *envs, const char *key, const char *value)
 		fn_env_node_delone(&envs->shel_env, key);
 		fn_env_node_delone(&envs->global_envs, key);
 		tmp = fn_env_node_new(key, value);
-		fn_env_node_append(&envs->global_envs, tmp);
+		fn_env_node_push(&envs->global_envs, tmp);
 	}
 }
